@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정쌤 정보실</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #fef3e2 50%, #e8f5e9 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .header-emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            color: #ff6b9d;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+
+        /* 섹션 카드 */
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section-card:active {
+            transform: scale(0.98);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .section-desc {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* 버튼 스타일 */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 섹션별 색상 */
+        .section-1 .section-icon { background: #ffe8ec; }
+        .section-1 .btn { background: #ff6b9d; color: white; }
+        .section-1 .btn:hover { background: #ff5289; }
+
+        .section-2 .section-icon { background: #e8f4fd; }
+        .section-2 .btn { background: #4a9eff; color: white; }
+        .section-2 .btn:hover { background: #3a8eef; }
+
+        .section-3 .section-icon { background: #fff3e0; }
+        .section-3 .btn { background: #ffab40; color: white; }
+        .section-3 .btn:hover { background: #ff9b20; }
+
+        .section-4 .section-icon { background: #e8f5e9; }
+        .section-4 .btn { background: #66bb6a; color: white; }
+        .section-4 .btn:hover { background: #56ab5a; }
+
+        .section-5 .section-icon { background: #f3e5f5; }
+
+        /* FAQ 아코디언 */
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 14px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: #444;
+            font-size: 15px;
+        }
+
+        .faq-question::after {
+            content: '▼';
+            font-size: 10px;
+            color: #ccc;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 12px;
+        }
+
+        /* 자료 링크 리스트 */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #444;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .resource-link:hover {
+            background: #e9ecef;
+        }
+
+        .resource-link::before {
+            content: '📁';
+        }
+
+        /* 푸터 */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .footer-emoji {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        /* 오늘의 질문 박스 */
+        .today-question-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0e8fd 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .today-question-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .today-question-text {
+            font-size: 16px;
+            color: #444;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* 데코레이션 */
+        .decoration {
+            position: fixed;
+            font-size: 30px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .deco-1 { top: 10%; left: 5%; }
+        .deco-2 { top: 30%; right: 3%; }
+        .deco-3 { top: 60%; left: 8%; }
+        .deco-4 { bottom: 15%; right: 5%; }
+    </style>
+</head>
+<body>
+    <!-- 배경 데코레이션 -->
+    <div class="decoration deco-1">🌸</div>
+    <div class="decoration deco-2">💻</div>
+    <div class="decoration deco-3">🤖</div>
+    <div class="decoration deco-4">✨</div>
+
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="header-emoji">🌷</div>
+            <h1>수정쌤 정보실</h1>
+            <p>안녕하세요, 수정쌤입니다.<br>이곳은 정보·인공지능 수업에서 생긴<br>궁금증을 자유롭게 남기는 공간입니다.</p>
+        </header>
+
+        <!-- 섹션 1: 익명 질문 남기기 -->
+        <div class="section-card section-1">
+            <div class="section-header">
+                <div class="section-icon">💬</div>
+                <div class="section-title">익명 질문 남기기</div>
+            </div>
+            <p class="section-desc">수업 중 궁금했던 것, 이해가 안 됐던 부분을 자유롭게 남겨주세요. 완전 익명이에요!</p>
+            <a href="YOUR_GOOGLE_FORM_LINK_1" target="_blank" class="btn">질문하러 가기 →</a>
+        </div>
+
+        <!-- 섹션 2: 오늘의 한 줄 질문 -->
+        <div class="section-card section-2">
+            <div class="section-header">
+                <div class="section-icon">✏️</div>
+                <div class="section-title">오늘의 한 줄 질문</div>
+            </div>
+            <div class="today-question-box">
+                <div class="today-question-label">Today's Question</div>
+                <div class="today-question-text">"인공지능이 인간의 일자리를 모두 대체할 수 있을까요?"</div>
+            </div>
+            <p class="section-desc">오늘의 질문에 대한 여러분의 생각을 한 줄로 남겨주세요!</p>
+            <a href="YOUR_GOOGLE_FORM_LINK_2" target="_blank" class="btn">답변하러 가기 →</a>
+        </div>
+
+        <!-- 섹션 3: 정보/AI 진로 질문 -->
+        <div class="section-card section-3">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <div class="section-title">정보/AI 진로 질문</div>
+            </div>
+            <p class="section-desc">정보·인공지능 관련 진로가 궁금하다면? 대학, 취업, 자격증 등 무엇이든 물어보세요!</p>
+            <a href="YOUR_GOOGLE_FORM_LINK_3" target="_blank" class="btn">진로 질문하기 →</a>
+        </div>
+
+        <!-- 섹션 4: 수업 자료 보기 -->
+        <div class="section-card section-4">
+            <div class="section-header">
+                <div class="section-icon">📚</div>
+                <div class="section-title">수업 자료 보기</div>
+            </div>
+            <p class="section-desc">수업에서 사용한 자료들을 확인할 수 있어요.</p>
+            <div class="resource-list">
+                <a href="YOUR_RESOURCE_LINK_1" target="_blank" class="resource-link">
+                    1단원 - 정보문화와 정보윤리
+                </a>
+                <a href="YOUR_RESOURCE_LINK_2" target="_blank" class="resource-link">
+                    2단원 - 자료와 정보
+                </a>
+                <a href="YOUR_RESOURCE_LINK_3" target="_blank" class="resource-link">
+                    3단원 - 문제해결과 프로그래밍
+                </a>
+                <a href="YOUR_RESOURCE_LINK_4" target="_blank" class="resource-link">
+                    인공지능 기초 자료
+                </a>
+            </div>
+        </div>
+
+        <!-- 섹션 5: 자주 나온 질문 -->
+        <div class="section-card section-5">
+            <div class="section-header">
+                <div class="section-icon">❓</div>
+                <div class="section-title">자주 나온 질문</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">파이썬이랑 스크래치 중에 뭐가 더 쉬워요?</div>
+                <div class="faq-answer">처음 시작한다면 스크래치가 더 쉬워요! 블록을 끌어다 놓는 방식이라 눈에 잘 보이거든요. 파이썬은 텍스트로 코드를 작성해야 하지만, 실제 현업에서 많이 쓰여서 나중에 꼭 배워두면 좋아요.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">인공지능 관련 직업은 어떤 게 있어요?</div>
+                <div class="faq-answer">AI 엔지니어, 데이터 과학자, 머신러닝 연구원, AI 윤리 전문가, 로봇공학자 등 다양해요! 요즘은 의료, 금융, 게임 등 거의 모든 분야에서 AI 전문가를 필요로 하고 있답니다.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">코딩을 잘하려면 수학을 잘해야 하나요?</div>
+                <div class="faq-answer">기본적인 코딩은 수학을 몰라도 할 수 있어요! 다만 인공지능이나 게임 개발 같은 분야로 깊이 들어가면 수학이 도움이 돼요. 너무 걱정하지 말고 일단 시작해 보세요!</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">수업 외에 코딩 공부는 어떻게 하면 좋아요?</div>
+                <div class="faq-answer">코드닷오알지(code.org), 엔트리, 백준 온라인 저지 같은 무료 사이트들이 있어요. 유튜브에서 파이썬 강의를 찾아보는 것도 좋고, 만들고 싶은 것을 직접 만들어보는 게 가장 좋은 공부법이에요!</div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="footer-emoji">💜</div>
+            <p>궁금한 건 언제든 물어보세요!<br>수정쌤이 답해드릴게요 ٩(◕‿◕)۶</p>
+        </footer>
+    </div>
+
+    <script>
+        // FAQ 아코디언 기능
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // 모든 FAQ 닫기
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // 클릭한 항목 토글
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // 부드러운 카드 애니메이션
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
