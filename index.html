@@ -6,7 +6,7 @@
   <title>수정쌤 정보실</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Jua&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cream: #FFF8F0;
@@ -64,8 +64,8 @@
     }
 
     .header-title {
-      font-family: 'Gowun Batang', serif;
-      font-weight: 700;
+      font-family: 'Jua', sans-serif;
+      font-weight: 400;
       font-size: 1.35rem;
       color: var(--coral-dark);
       letter-spacing: -0.02em;
@@ -96,6 +96,7 @@
       overflow: hidden;
       box-shadow: 0 8px 30px rgba(255, 100, 80, 0.3);
       animation: slideDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+      text-align: center;
     }
 
     .welcome-card::before {
@@ -129,9 +130,9 @@
     }
 
     .welcome-card h1 {
-      font-family: 'Gowun Batang', serif;
+      font-family: 'Jua', sans-serif;
       font-size: 1.15rem;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 1.65;
     }
 
@@ -145,6 +146,11 @@
       font-size: 0.7rem;
       font-weight: 500;
       margin-top: 12px;
+    }
+
+    .welcome-card .badge-wrap {
+      display: flex;
+      justify-content: center;
     }
 
     /* ─── Section headings ─── */
@@ -281,9 +287,9 @@
     }
 
     .today-q-text {
-      font-family: 'Gowun Batang', serif;
+      font-family: 'Jua', sans-serif;
       font-size: 1.05rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--text-dark);
       line-height: 1.6;
       margin-bottom: 4px;
@@ -531,7 +537,7 @@
   <!-- Header -->
   <header>
     <div class="header-title">🌸 수정쌤 정보실</div>
-    <div class="header-sub">정보 · 인공지능 수업 질문 공간</div>
+    <div class="header-sub">정보 수업 질문 공간</div>
   </header>
 
   <!-- Toast -->
@@ -545,9 +551,9 @@
 
       <!-- Welcome card -->
       <div class="welcome-card">
-        <div class="teacher-badge">👩‍💻 수정쌤</div>
-        <h1>안녕하세요, 수정쌤입니다.<br>이곳은 정보·인공지능 수업에서<br>생긴 궁금증을 자유롭게<br>남기는 공간입니다.</h1>
-        <div class="privacy-badge">🔒 개인정보 수집 없음 · 완전 익명</div>
+        <div class="badge-wrap"><div class="teacher-badge">👩‍💻 수정쌤</div></div>
+        <h1>안녕하세요, 수정쌤입니다.<br>이곳은 정보 수업에서<br>생긴 궁금증을 자유롭게<br>남기는 공간입니다.</h1>
+        <div class="badge-wrap"><div class="privacy-badge">🔒 개인정보 수집 없음 · 완전 익명</div></div>
       </div>
 
       <!-- Quick action buttons -->
@@ -611,22 +617,8 @@
         <span class="card-icon">🙋‍♀️</span>
         <h2>수업 중 생긴 궁금증</h2>
         <p>수업 내용 중 모르는 것, 더 알고 싶은 것을 익명으로 남겨주세요. 이름을 쓰지 않아도 괜찮아요!</p>
-        <a href="https://forms.gle/YOUR_FORM_LINK_HERE" target="_blank" class="action-btn btn-coral" onclick="handleFormClick(event, this.href)">
+        <a href="https://forms.gle/e9VzpDHMnK74hM6s9" target="_blank" class="action-btn btn-coral" onclick="handleFormClick(event, this.href)">
           📝 수업 질문 남기러 가기
-        </a>
-      </div>
-
-      <div class="section-label">
-        <div class="dot" style="background:var(--lavender-dark);"></div>
-        <span>정보/AI 진로 질문</span>
-      </div>
-
-      <div class="card">
-        <span class="card-icon">🚀</span>
-        <h2>진로·직업 궁금증</h2>
-        <p>AI 관련 직업, 대학 전공, 미래 진로에 대한 질문을 남겨주세요. 수정쌤이 직접 찾아서 답해드릴게요!</p>
-        <a href="https://forms.gle/YOUR_CAREER_FORM_LINK" target="_blank" class="action-btn btn-lavender" onclick="handleFormClick(event, this.href)">
-          🎯 진로 질문 남기러 가기
         </a>
       </div>
 
@@ -662,7 +654,7 @@
         <div class="today-badge">📅 2025년 5월</div>
         <div class="today-q-text">인공지능이 그림을 그린다면, 그 그림의 저작권은 누구에게 있을까요?</div>
         <div class="today-q-hint">⏱ 딱 한 줄이면 충분해요. 틀려도 괜찮아요!</div>
-        <a href="https://forms.gle/YOUR_TODAY_Q_FORM" target="_blank" class="action-btn btn-yellow" onclick="handleFormClick(event, this.href)">
+        <a href="https://forms.gle/DBPqx26rb7jwGbxe6" target="_blank" class="action-btn btn-yellow" onclick="handleFormClick(event, this.href)">
           ✍️ 내 생각 한 줄 남기기
         </a>
       </div>
@@ -711,56 +703,85 @@
       <div class="card">
         <div class="material-list">
 
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
+          <a href="https://drive.google.com/drive/folders/17LMW10dyfiz0M1LP5AIqNAD79yGGuL9Y?usp=drive_link" target="_blank" class="material-item">
             <div class="material-icon" style="background:#FFF0F0;">📄</div>
             <div class="material-info">
-              <div class="material-title">1학기 수업 슬라이드</div>
-              <div class="material-sub">정보 기초 · 데이터 표현 · 알고리즘</div>
+              <div class="material-title">수업 슬라이드</div>
+              <div class="material-sub">수업 자료 모음</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
 
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
-            <div class="material-icon" style="background:#F0FFF8;">🤖</div>
-            <div class="material-info">
-              <div class="material-title">AI 개념 정리 노트</div>
-              <div class="material-sub">머신러닝 · 딥러닝 · 자연어처리</div>
-            </div>
-            <span class="material-arrow">›</span>
-          </a>
-
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
+          <a href="https://drive.google.com/drive/folders/1OuxopJzL1WkWhdUChXZUCPwkkQAc66X-?usp=drive_link" target="_blank" class="material-item">
             <div class="material-icon" style="background:#F5F0FF;">🐍</div>
             <div class="material-info">
               <div class="material-title">파이썬 실습 코드</div>
-              <div class="material-sub">Google Colab 링크 모음</div>
+              <div class="material-sub">수업 예제 모음</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
 
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
-            <div class="material-icon" style="background:#FFF8E0;">📊</div>
+          <a href="https://drive.google.com/file/d/1PF3Mp_Htsq2HbGIl3C6zeu4MHv7wrWvT/view?usp=drive_link" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#F0FFF8;">📓</div>
             <div class="material-info">
-              <div class="material-title">데이터 분석 프로젝트 예시</div>
-              <div class="material-sub">1학년 3반 · 4반 결과물</div>
+              <div class="material-title">파이썬 문법 정리 노트</div>
+              <div class="material-sub">Jupyter Notebook (.ipynb) 파일</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
 
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
-            <div class="material-icon" style="background:#F0F8FF;">🎬</div>
+          <a href="https://neon-piroshki-7f0484.netlify.app/" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#FFF0E0;">🧠</div>
             <div class="material-info">
-              <div class="material-title">AI 관련 추천 영상 목록</div>
-              <div class="material-sub">유튜브 링크 큐레이션</div>
+              <div class="material-title">수업 마무리 퀴즈</div>
+              <div class="material-sub">오늘 배운 내용 확인하기</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
 
-          <a href="#" class="material-item" onclick="handleFormClick(event, '#')">
-            <div class="material-icon" style="background:#FFF0F8;">📝</div>
+        </div>
+      </div>
+
+      <div class="section-label">
+        <div class="dot" style="background:var(--coral);"></div>
+        <span>🎬 추천 유튜브 채널</span>
+      </div>
+
+      <div class="card">
+        <div class="material-list">
+
+          <a href="https://www.youtube.com/@codingapple" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#FFF3E0; font-size:1rem; display:flex; align-items:center; justify-content:center;">🍎</div>
             <div class="material-info">
-              <div class="material-title">중간·기말 시험 대비 자료</div>
-              <div class="material-sub">기출 문제 & 예상 문제</div>
+              <div class="material-title">코딩애플</div>
+              <div class="material-sub">개념을 재밌고 쉽게 설명 — 파이썬·웹·CS 입문 최고</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+
+          <a href="https://www.youtube.com/@yalco-coding" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#E8F5E9; font-size:1rem; display:flex; align-items:center; justify-content:center;">📘</div>
+            <div class="material-info">
+              <div class="material-title">얄팍한 코딩사전</div>
+              <div class="material-sub">CS 개념 · 프로그래밍 원리 쉽게 정리</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+
+          <a href="https://www.youtube.com/@TeddyNote" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#E3F2FD; font-size:1rem; display:flex; align-items:center; justify-content:center;">🐻</div>
+            <div class="material-info">
+              <div class="material-title">테디노트 (TeddyNote)</div>
+              <div class="material-sub">파이썬 · 머신러닝 · AI 입문 강의</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+
+          <a href="https://www.youtube.com/@dongbinna" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#F3F0FF; font-size:1rem; display:flex; align-items:center; justify-content:center;">🎯</div>
+            <div class="material-info">
+              <div class="material-title">동빈나</div>
+              <div class="material-sub">알고리즘 · 파이썬 실전 코딩 튜토리얼</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
@@ -775,19 +796,11 @@
 
       <div class="card">
         <div class="material-list">
-          <a href="https://teachablemachine.withgoogle.com" target="_blank" class="material-item">
-            <div class="material-icon" style="background:#E8F5E9;">🎓</div>
+          <a href="https://codeup.kr" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#F0FFF4;">🧩</div>
             <div class="material-info">
-              <div class="material-title">Teachable Machine</div>
-              <div class="material-sub">코딩 없이 AI 모델 만들기 (Google)</div>
-            </div>
-            <span class="material-arrow">›</span>
-          </a>
-          <a href="https://scratch.mit.edu" target="_blank" class="material-item">
-            <div class="material-icon" style="background:#FFF3E0;">😺</div>
-            <div class="material-info">
-              <div class="material-title">Scratch</div>
-              <div class="material-sub">블록 코딩 기초 (MIT)</div>
+              <div class="material-title">코드업 (CodeUp)</div>
+              <div class="material-sub">기초 파이썬 문제, 학교 수업용 딱!</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
@@ -796,6 +809,22 @@
             <div class="material-info">
               <div class="material-title">Code.org</div>
               <div class="material-sub">컴퓨터 사이언스 무료 강좌</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+          <a href="https://teachablemachine.withgoogle.com" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#E8F5E9;">🎓</div>
+            <div class="material-info">
+              <div class="material-title">Teachable Machine</div>
+              <div class="material-sub">코딩 없이 AI 모델 만들기 (Google)</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+          <a href="https://aihub.or.kr" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#F3F0FF;">🤖</div>
+            <div class="material-info">
+              <div class="material-title">AI 허브</div>
+              <div class="material-sub">정부 AI 데이터셋, AI 개념 학습</div>
             </div>
             <span class="material-arrow">›</span>
           </a>
