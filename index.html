@@ -300,6 +300,99 @@
       color: var(--text-soft);
     }
 
+
+    /* ─── Class access / Mentimeter card ─── */
+    .join-card {
+      background: linear-gradient(135deg, #F0FFF8 0%, #FFF8E0 100%);
+      border: 2px solid var(--mint);
+      border-radius: 20px;
+      padding: 20px 18px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      animation: fadeUp 0.5s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .join-card::after {
+      content: '☁️';
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      font-size: 2.4rem;
+      opacity: 0.18;
+    }
+
+    .join-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--mint);
+      border-radius: 999px;
+      padding: 3px 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #216B5A;
+      margin-bottom: 10px;
+    }
+
+    .join-title {
+      font-family: 'Jua', sans-serif;
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .join-desc {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .access-box {
+      background: rgba(255,255,255,0.82);
+      border: 1.5px solid #D8F4EA;
+      border-radius: 14px;
+      padding: 12px 12px;
+      margin-top: 8px;
+    }
+
+    .access-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-soft);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .access-value {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      flex-shrink: 0;
+      border: none;
+      border-radius: 999px;
+      background: var(--mint-dark);
+      color: white;
+      padding: 6px 10px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
     /* ─── Material links ─── */
     .material-list {
       display: flex;
@@ -537,7 +630,7 @@
   <!-- Header -->
   <header>
     <div class="header-title">🌸 수정쌤 정보실</div>
-    <div class="header-sub">정보 수업 질문 공간</div>
+    <div class="header-sub">정보 수업 질문 · 자료 · 참여 공간</div>
   </header>
 
   <!-- Toast -->
@@ -555,6 +648,39 @@
         <h1>안녕하세요, 수정쌤입니다.<br>이곳은 정보 수업에서<br>생긴 궁금증을 자유롭게<br>남기는 공간입니다.</h1>
         <div class="badge-wrap"><div class="privacy-badge">🔒 개인정보 수집 없음 · 완전 익명</div></div>
       </div>
+
+      <!-- Class access information -->
+      <div class="section-label">
+        <div class="dot" style="background:var(--mint-dark);"></div>
+        <span>수업 참여 링크</span>
+      </div>
+
+      <div class="join-card">
+        <div class="join-badge">📲 오늘 수업 참여</div>
+        <div class="join-title">멘티미터 워드클라우드에 접속해<br>내 생각을 한 단어로 남겨보세요.</div>
+        <p class="join-desc">아래 버튼을 누르면 바로 참여할 수 있어요. 접속이 안 될 경우 <b>menti.com</b>에서 참여 코드를 입력하세요.</p>
+
+        <div class="access-box">
+          <span class="access-label">멘티미터 참여 주소</span>
+          <div class="access-value">
+            <span>menti.com/alb7wvhrq56u</span>
+            <button class="copy-btn" onclick="copyText('https://www.menti.com/alb7wvhrq56u')">복사</button>
+          </div>
+        </div>
+
+        <div class="access-box">
+          <span class="access-label">참여 코드</span>
+          <div class="access-value">
+            <span>alb7wvhrq56u</span>
+            <button class="copy-btn" onclick="copyText('alb7wvhrq56u')">복사</button>
+          </div>
+        </div>
+
+        <a href="https://www.menti.com/alb7wvhrq56u" target="_blank" class="action-btn btn-mint">
+          🚀 멘티미터 바로가기
+        </a>
+      </div>
+
 
       <!-- Quick action buttons -->
       <div class="section-label">
@@ -584,6 +710,7 @@
           <div style="font-size:0.72rem; color:var(--text-soft); margin-top:3px;">FAQ 보기</div>
         </button>
       </div>
+
 
       <!-- Today's teaser -->
       <div class="section-label">
@@ -702,6 +829,16 @@
 
       <div class="card">
         <div class="material-list">
+
+          <a href="https://www.menti.com/alb7wvhrq56u" target="_blank" class="material-item">
+            <div class="material-icon" style="background:#F0FFF8;">☁️</div>
+            <div class="material-info">
+              <div class="material-title">멘티미터 참여 링크</div>
+              <div class="material-sub">워드클라우드 · 수업 질문 실시간 참여</div>
+            </div>
+            <span class="material-arrow">›</span>
+          </a>
+
 
           <a href="https://drive.google.com/drive/folders/17LMW10dyfiz0M1LP5AIqNAD79yGGuL9Y?usp=drive_link" target="_blank" class="material-item">
             <div class="material-icon" style="background:#FFF0F0;">📄</div>
@@ -969,6 +1106,34 @@
         showToast('🔗 수정쌤이 곧 링크를 연결할 예정이에요!');
         return;
       }
+    }
+
+    // ── Copy link/code ──
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+          .then(() => showToast('✅ 복사했어요!'))
+          .catch(() => fallbackCopyText(text));
+      } else {
+        fallbackCopyText(text);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      temp.style.position = 'fixed';
+      temp.style.left = '-9999px';
+      document.body.appendChild(temp);
+      temp.focus();
+      temp.select();
+      try {
+        document.execCommand('copy');
+        showToast('✅ 복사했어요!');
+      } catch (err) {
+        showToast('복사가 안 되면 직접 입력해주세요.');
+      }
+      document.body.removeChild(temp);
     }
 
     // ── Toast ──
